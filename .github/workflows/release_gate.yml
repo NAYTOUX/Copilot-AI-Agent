@@ -1,0 +1,31 @@
+name: Release Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run full checks
+        run: python .github/scripts/run_orchestrator_checks.py
+      - name: Enforce clean release candidate
+        run: |
+          python .github/scripts/doctor_agent_hub.py --no-run --strict
+          python .github/scripts/prepare_release.py --skip-checks

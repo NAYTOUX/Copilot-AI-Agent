@@ -1,0 +1,33 @@
+name: Routing gap
+description: Report a request that the Orchestrator routed incorrectly or weakly.
+title: "[routing] "
+labels: ["agent-hub", "routing"]
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: Original request
+      description: Paste the smallest request that demonstrates the routing problem.
+    validations:
+      required: true
+  - type: input
+    id: expected_agents
+    attributes:
+      label: Expected agents
+      description: Comma-separated agent names.
+    validations:
+      required: true
+  - type: input
+    id: actual_agents
+    attributes:
+      label: Actual agents
+      description: Comma-separated agent names returned by route_request.py.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Name the missing keywords, exclusions, test case, or rule change.
+    validations:
+      required: true

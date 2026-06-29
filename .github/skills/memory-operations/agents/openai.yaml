@@ -1,0 +1,7 @@
+interface:
+  display_name: "Memory Operations"
+  short_description: "Append safe durable memory and refresh profiles."
+  default_prompt: "Use $memory-operations to classify, safely store, and validate this memory or inbound report."
+policy:
+  allow_implicit_invocation: true
+

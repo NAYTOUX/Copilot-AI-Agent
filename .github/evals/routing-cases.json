@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "memory_agent_governance",
+      "text": "Update the orchestrator memory and agent routing instructions after a cross repo relay.",
+      "expected_agents": ["Memory Governor", "Agent System Governor"],
+      "forbidden_agents": ["Performance Optimizer"],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "personality_evolution_from_usage",
+      "text": "Auto create a missing agent personality from repeated orchestrator usage reports and update memory.",
+      "expected_agents": ["Personality Evolution Governor", "Memory Governor", "Agent System Governor"],
+      "forbidden_agents": ["Performance Optimizer"],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "python_api_regression",
+      "text": "Fix a failing Python regression in the API tests.",
+      "expected_agents": ["Debugger", "Python Worker", "Backend API Worker", "Testing Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "secure_github_actions_python_api",
+      "text": "Create a secure GitHub Actions workflow for a Python API.",
+      "expected_agents": ["DevOps CI Worker", "Security Worker", "Python Worker", "Backend API Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "frontend_accessibility",
+      "text": "Improve the dashboard layout spacing and accessibility without changing backend behavior.",
+      "expected_agents": ["Frontend UI Worker", "Product Strategy Worker"],
+      "forbidden_agents": ["Backend API Worker"],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "finance_formula",
+      "text": "Review the portfolio risk formula, state assumptions, and validate missing market data behavior.",
+      "expected_agents": ["Data Finance Worker", "Macro Economist Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "dependency_license_upgrade",
+      "text": "Review license and vulnerability risk before upgrading the package lockfile.",
+      "expected_agents": ["Dependency Supply Chain Worker", "Security Worker", "Legal Compliance Worker"],
+      "forbidden_agents": ["Data Finance Worker", "Macro Economist Worker"],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "cloud_observability",
+      "text": "Add Azure deployment monitoring with metrics, alerts, and rollback notes.",
+      "expected_agents": ["Cloud Infrastructure Worker", "Observability Worker", "DevOps CI Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "ml_evaluation",
+      "text": "Evaluate the machine learning model for data leakage and define the validation metric.",
+      "expected_agents": ["Machine Learning Worker", "Data Finance Worker"],
+      "forbidden_agents": ["Memory Governor", "Observability Worker"],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "mobile_permissions",
+      "text": "Fix the Android offline permission flow and validate the mobile lifecycle behavior.",
+      "expected_agents": ["Mobile App Worker", "Frontend UI Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "current_external_research",
+      "text": "Verify the latest official API documentation and source requirements before implementation.",
+      "expected_agents": ["Research Worker"],
+      "forbidden_agents": [],
+      "min_confidence": "medium"
+    },
+    {
+      "id": "unknown_scope_fallback",
+      "text": "xyzzy plugh unmatched tokens only",
+      "expected_agents": ["Chief of Staff", "Repo Explorer"],
+      "forbidden_agents": [],
+      "min_confidence": "low"
+    }
+  ]
+}

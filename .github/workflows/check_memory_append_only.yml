@@ -1,0 +1,34 @@
+name: Check Memory Append Only
+
+on:
+  pull_request:
+    paths:
+      - .github/memory/**
+  push:
+    paths:
+      - .github/memory/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: memory-append-only-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check append-only memory
+        run: |
+          python .github/scripts/check_memory_append_only.py \
+            --base "${{ github.event.before }}" \
+            --head "${{ github.sha }}"
+

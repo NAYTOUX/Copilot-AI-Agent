@@ -1,0 +1,6 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Find actionable bugs, regressions, missing tests, and release blockers."
+  default_prompt: "Use $code-review to review this change for defects, missing tests, security risk, and release readiness."
+policy:
+  allow_implicit_invocation: true

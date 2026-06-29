@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "default_entrypoint": "Universal Orchestrator",
+  "relationships": [
+    {
+      "agent": "Universal Orchestrator",
+      "reports_to": null,
+      "manages": ["Chief of Staff", "Agent System Governor", "Memory Governor", "Personality Evolution Governor", "Delivery Lead", "Quality Governor"],
+      "collaborates_with": ["Research Worker", "Security Worker"],
+      "escalates_to": []
+    },
+    {
+      "agent": "Chief of Staff",
+      "reports_to": "Universal Orchestrator",
+      "manages": ["Repo Explorer", "Product Strategy Worker"],
+      "collaborates_with": ["Delivery Lead", "Quality Governor"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Agent System Governor",
+      "reports_to": "Universal Orchestrator",
+      "manages": ["Personality Evolution Governor"],
+      "collaborates_with": ["Memory Governor", "Quality Governor", "Documentation Worker"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Memory Governor",
+      "reports_to": "Universal Orchestrator",
+      "manages": [],
+      "collaborates_with": ["Personality Evolution Governor", "Agent System Governor", "Security Worker"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Personality Evolution Governor",
+      "reports_to": "Universal Orchestrator",
+      "manages": [],
+      "collaborates_with": ["Agent System Governor", "Memory Governor", "Quality Governor"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Delivery Lead",
+      "reports_to": "Universal Orchestrator",
+      "manages": ["Programming Language Lead", "Software Architect", "Automation Workflow Worker"],
+      "collaborates_with": ["Quality Governor", "Security Worker"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Quality Governor",
+      "reports_to": "Universal Orchestrator",
+      "manages": ["Testing Worker", "Debugger"],
+      "collaborates_with": ["Delivery Lead", "Security Worker", "Agent System Governor"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Programming Language Lead",
+      "reports_to": "Delivery Lead",
+      "manages": ["Python Worker", "JavaScript TypeScript Worker"],
+      "collaborates_with": ["Testing Worker", "Backend API Worker", "Frontend UI Worker"],
+      "escalates_to": ["Delivery Lead"]
+    },
+    {
+      "agent": "Software Architect",
+      "reports_to": "Delivery Lead",
+      "manages": ["Backend API Worker", "Database Worker", "Cloud Infrastructure Worker"],
+      "collaborates_with": ["Security Worker", "Performance Optimizer"],
+      "escalates_to": ["Delivery Lead"]
+    },
+    {
+      "agent": "AI Architect",
+      "reports_to": "Delivery Lead",
+      "manages": ["Machine Learning Worker"],
+      "collaborates_with": ["Research Worker", "Quality Governor"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Data Finance Worker",
+      "reports_to": "Delivery Lead",
+      "manages": ["Macro Economist Worker"],
+      "collaborates_with": ["Research Worker", "Testing Worker", "Security Worker"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "Security Worker",
+      "reports_to": "Quality Governor",
+      "manages": ["Dependency Supply Chain Worker", "Legal Compliance Worker"],
+      "collaborates_with": ["DevOps CI Worker", "Cloud Infrastructure Worker"],
+      "escalates_to": ["Universal Orchestrator"]
+    },
+    {
+      "agent": "DevOps CI Worker",
+      "reports_to": "Delivery Lead",
+      "manages": ["Cloud Infrastructure Worker", "Observability Worker"],
+      "collaborates_with": ["Security Worker", "Automation Workflow Worker"],
+      "escalates_to": ["Delivery Lead"]
+    }
+  ],
+  "defaults": {
+    "level_2_reports_to": "Delivery Lead",
+    "level_3_reports_to": "Delivery Lead",
+    "quality_escalation": "Quality Governor",
+    "memory_escalation": "Memory Governor",
+    "security_escalation": "Security Worker"
+  }
+}

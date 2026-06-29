@@ -1,0 +1,45 @@
+name: Refresh Orchestrator Profiles
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/memory/orchestrator-feedback-loop.md
+      - .github/scripts/update_orchestrator_adaptive_profile.py
+      - .github/scripts/update_orchestrator_personality.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-orchestrator-profiles
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh profiles
+        run: |
+          python .github/scripts/update_orchestrator_adaptive_profile.py
+          python .github/scripts/update_orchestrator_personality.py
+          python .github/scripts/validate_copilot_customizations.py
+          python .github/scripts/validate_json_contracts.py
+          python .github/scripts/scan_sensitive_content.py .github/memory
+      - name: Commit profile updates
+        run: |
+          if [ -n "$(git status --porcelain .github/memory/orchestrator-adaptive-profile.md .github/memory/orchestrator-personality.md)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/memory/orchestrator-adaptive-profile.md .github/memory/orchestrator-personality.md
+            git commit -m "chore(memory): refresh orchestrator profiles"
+            git push
+          else
+            echo "No profile changes."
+          fi

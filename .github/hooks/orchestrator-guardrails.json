@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "disableAllHooks": false,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "if command -v python3 >/dev/null 2>&1; then python3 .github/scripts/copilot_hook_guard.py --event sessionStart; elif command -v python >/dev/null 2>&1; then python .github/scripts/copilot_hook_guard.py --event sessionStart; else printf '{}'; fi",
+        "powershell": "if (Get-Command python -ErrorAction SilentlyContinue) { python .github/scripts/copilot_hook_guard.py --event sessionStart } else { '{}' }",
+        "timeoutSec": 10
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "matcher": "bash|powershell|Bash",
+        "bash": "if command -v python3 >/dev/null 2>&1; then python3 .github/scripts/copilot_hook_guard.py --event preToolUse; elif command -v python >/dev/null 2>&1; then python .github/scripts/copilot_hook_guard.py --event preToolUse; else printf '{\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Python is unavailable, so the command guard cannot evaluate this tool call.\"}'; fi",
+        "powershell": "if (Get-Command python -ErrorAction SilentlyContinue) { python .github/scripts/copilot_hook_guard.py --event preToolUse } else { '{\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Python is unavailable, so the command guard cannot evaluate this tool call.\"}' }",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "matcher": "edit|create|str_replace_editor|apply_patch|Edit|Write",
+        "bash": "if command -v python3 >/dev/null 2>&1; then python3 .github/scripts/copilot_hook_guard.py --event postToolUse; elif command -v python >/dev/null 2>&1; then python .github/scripts/copilot_hook_guard.py --event postToolUse; else printf '{}'; fi",
+        "powershell": "if (Get-Command python -ErrorAction SilentlyContinue) { python .github/scripts/copilot_hook_guard.py --event postToolUse } else { '{}' }",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUseFailure": [
+      {
+        "type": "command",
+        "bash": "if command -v python3 >/dev/null 2>&1; then python3 .github/scripts/copilot_hook_guard.py --event postToolUseFailure; elif command -v python >/dev/null 2>&1; then python .github/scripts/copilot_hook_guard.py --event postToolUseFailure; else printf '{}'; fi",
+        "powershell": "if (Get-Command python -ErrorAction SilentlyContinue) { python .github/scripts/copilot_hook_guard.py --event postToolUseFailure } else { '{}' }",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

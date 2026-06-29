@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "default_agent": "Universal Orchestrator",
+  "fallback_agents": ["Chief of Staff", "Repo Explorer"],
+  "rules": [
+    {
+      "id": "agent_governance",
+      "description": "Agents, prompts, skills, instructions, registry, or Copilot customization.",
+      "keywords": ["agent", "prompt", "skill", "instruction", "copilot", "registry", ".github", "orchestrator", "routing"],
+      "primary": "Agent System Governor",
+      "secondary": ["Memory Governor", "Quality Governor"],
+      "validation": "python .github/scripts/validate_copilot_customizations.py"
+    },
+    {
+      "id": "memory_relay",
+      "description": "Memory, feedback, provenance, inbox, cross-repo learning, or profile updates.",
+      "keywords": ["memory", "memoire", "feedback", "provenance", "relay", "inbox", "profile", "durable lesson", "reusable lesson"],
+      "exclude_patterns": ["machine learning"],
+      "primary": "Memory Governor",
+      "secondary": ["Agent System Governor"],
+      "validation": "python .github/scripts/run_orchestrator_checks.py"
+    },
+    {
+      "id": "personality_evolution",
+      "description": "Create, tune, merge, or validate agent personalities from memory and usage reports.",
+      "keywords": ["personality", "personalite", "persona", "new agent", "missing agent", "agent gap", "specialist gap", "auto create", "usage report", "orchestrator usage"],
+      "primary": "Personality Evolution Governor",
+      "secondary": ["Agent System Governor", "Memory Governor", "Quality Governor"],
+      "validation": "python .github/scripts/run_orchestrator_checks.py"
+    },
+    {
+      "id": "implementation",
+      "description": "General implementation or multi-file delivery.",
+      "keywords": ["implement", "build", "create", "add", "modify", "refactor", "feature", "code"],
+      "exclude_patterns": ["agent personality", "new agent", "missing agent", "personality"],
+      "primary": "Delivery Lead",
+      "secondary": ["Programming Language Lead", "Quality Governor"],
+      "validation": "project-native tests"
+    },
+    {
+      "id": "architecture",
+      "description": "Architecture, contracts, module boundaries, or design tradeoffs.",
+      "keywords": ["architecture", "contract", "boundary", "module", "design", "scalability", "migration"],
+      "primary": "Software Architect",
+      "secondary": ["Delivery Lead"],
+      "validation": "architecture decision and migration plan"
+    },
+    {
+      "id": "python",
+      "description": "Python implementation or debugging.",
+      "keywords": ["python", ".py", "pytest", "unittest", "py_compile", "pandas", "fastapi", "django"],
+      "primary": "Python Worker",
+      "secondary": ["Testing Worker"],
+      "validation": "python -m py_compile <touched_files>"
+    },
+    {
+      "id": "javascript_typescript",
+      "description": "JavaScript, TypeScript, Node, or browser implementation.",
+      "keywords": ["javascript", "typescript", ".js", ".ts", "node", "npm", "pnpm", "react", "vue", "svelte"],
+      "primary": "JavaScript TypeScript Worker",
+      "secondary": ["Testing Worker"],
+      "validation": "package typecheck/lint/test/build"
+    },
+    {
+      "id": "frontend_ui",
+      "description": "Frontend layout, visual hierarchy, accessibility, or responsive behavior.",
+      "keywords": ["ui", "ux", "frontend", "layout", "responsive", "css", "accessibility", "button", "screen", "design"],
+      "primary": "Frontend UI Worker",
+      "secondary": ["Product Strategy Worker", "Quality Governor"],
+      "validation": "browser or screenshot check when meaningful"
+    },
+    {
+      "id": "mobile",
+      "description": "Mobile app, iOS, Android, React Native, Flutter, or app-store behavior.",
+      "keywords": ["mobile", "ios", "android", "react native", "flutter", "app store", "offline", "permission"],
+      "primary": "Mobile App Worker",
+      "secondary": ["Frontend UI Worker"],
+      "validation": "native build/test/simulator check"
+    },
+    {
+      "id": "backend_api",
+      "description": "Backend APIs, services, integrations, auth boundaries, or server logic.",
+      "keywords": ["api", "backend", "server", "service", "endpoint", "integration", "webhook", "request", "response"],
+      "exclude_patterns": ["without changing backend", "no backend"],
+      "primary": "Backend API Worker",
+      "secondary": ["Security Worker", "Testing Worker"],
+      "validation": "tests/import checks"
+    },
+    {
+      "id": "database",
+      "description": "Database schema, SQL, migrations, data integrity, or query performance.",
+      "keywords": ["database", "sql", "migration", "schema", "query", "index", "postgres", "mysql", "sqlite"],
+      "primary": "Database Worker",
+      "secondary": ["Data Finance Worker"],
+      "validation": "migration/query validation"
+    },
+    {
+      "id": "debugging",
+      "description": "Tracebacks, runtime failures, regressions, or broken behavior.",
+      "keywords": ["bug", "debug", "traceback", "exception", "error", "regression", "crash", "failing", "broken"],
+      "primary": "Debugger",
+      "secondary": ["Testing Worker"],
+      "validation": "failing path validation"
+    },
+    {
+      "id": "testing_quality",
+      "description": "Tests, review, release gate, validation, or regression risk.",
+      "keywords": ["test", "review", "qa", "quality", "release", "gate", "coverage", "regression", "validation"],
+      "primary": "Quality Governor",
+      "secondary": ["Testing Worker"],
+      "validation": "test evidence"
+    },
+    {
+      "id": "performance",
+      "description": "Performance, latency, memory, cost, caching, or bottleneck work.",
+      "keywords": ["performance", "latency", "slow", "speed", "cache", "memory leak", "ram", "heap", "bottleneck", "optimize", "cost"],
+      "primary": "Performance Optimizer",
+      "secondary": ["Debugger"],
+      "validation": "benchmark or targeted check"
+    },
+    {
+      "id": "ai_architecture",
+      "description": "AI prompts, models, provider routing, task profiles, or evaluation.",
+      "keywords": ["ai", "model", "llm", "openai", "claude", "prompt", "provider", "eval", "token"],
+      "primary": "AI Architect",
+      "secondary": ["Research Worker"],
+      "validation": "eval or output contract check"
+    },
+    {
+      "id": "machine_learning",
+      "description": "Machine learning models, features, leakage, evaluation, or inference.",
+      "keywords": ["machine learning", "ml", "model training", "features", "inference", "dataset", "leakage", "metric"],
+      "primary": "Machine Learning Worker",
+      "secondary": ["Data Finance Worker"],
+      "validation": "evaluation split and metric evidence"
+    },
+    {
+      "id": "finance_data",
+      "description": "Finance, markets, trading, analytics, formulas, or portfolio logic.",
+      "keywords": ["finance", "market", "trading", "portfolio", "valuation", "portfolio risk", "return", "pnl", "formula", "kpi"],
+      "primary": "Data Finance Worker",
+      "secondary": ["Macro Economist Worker"],
+      "validation": "formula/source validation"
+    },
+    {
+      "id": "macro_economics",
+      "description": "Macroeconomic, country, monetary, fiscal, or geopolitical data.",
+      "keywords": ["macro", "gdp", "inflation", "central bank", "imf", "world bank", "country", "fiscal", "monetary"],
+      "primary": "Macro Economist Worker",
+      "secondary": ["Research Worker"],
+      "validation": "source/date/unit check"
+    },
+    {
+      "id": "research",
+      "description": "Current external facts, source verification, standards, libraries, or documentation.",
+      "keywords": ["research", "source", "latest", "current", "verify", "documentation", "standard", "library", "api docs"],
+      "primary": "Research Worker",
+      "secondary": ["Security Worker"],
+      "validation": "citations and safety gate"
+    },
+    {
+      "id": "security",
+      "description": "Security, secrets, auth, permissions, privacy, or threat risk.",
+      "keywords": ["security", "secret", "token", "password", "auth", "permission", "privacy", "vulnerability", "threat"],
+      "primary": "Security Worker",
+      "secondary": ["DevOps CI Worker"],
+      "validation": "risk verification"
+    },
+    {
+      "id": "dependency_supply_chain",
+      "description": "Dependencies, versions, licenses, vulnerabilities, lockfiles, or supply chain.",
+      "keywords": ["dependency", "package", "license", "lockfile", "cve", "vulnerability", "supply chain", "upgrade"],
+      "primary": "Dependency Supply Chain Worker",
+      "secondary": ["Security Worker"],
+      "validation": "lockfile and advisory check"
+    },
+    {
+      "id": "legal_compliance",
+      "description": "Legal, compliance, terms, retention, regulatory, or licensing risk.",
+      "keywords": ["legal", "compliance", "terms", "regulation", "retention", "license", "policy", "gdpr"],
+      "primary": "Legal Compliance Worker",
+      "secondary": ["Research Worker"],
+      "validation": "primary-source compliance note"
+    },
+    {
+      "id": "devops_ci",
+      "description": "CI/CD, GitHub Actions, deployment, workflow, or release automation.",
+      "keywords": ["ci", "cd", "github action", "workflow", "deploy", "release", "pipeline", "runner"],
+      "primary": "DevOps CI Worker",
+      "secondary": ["Security Worker"],
+      "validation": "workflow validation"
+    },
+    {
+      "id": "cloud_infrastructure",
+      "description": "Cloud, IaC, network, environment, compute, storage, or cloud permissions.",
+      "keywords": ["cloud", "iac", "terraform", "azure", "aws", "gcp", "network", "storage", "compute", "environment"],
+      "primary": "Cloud Infrastructure Worker",
+      "secondary": ["DevOps CI Worker"],
+      "validation": "plan/smoke test/rollback note"
+    },
+    {
+      "id": "observability",
+      "description": "Logs, metrics, tracing, alerts, incidents, or SLOs.",
+      "keywords": ["log", "metric", "trace", "alert", "incident", "slo", "observability", "telemetry", "monitoring"],
+      "exclude_patterns": ["validation metric", "evaluation metric", "model metric"],
+      "primary": "Observability Worker",
+      "secondary": ["DevOps CI Worker"],
+      "validation": "signal and sensitive-data check"
+    },
+    {
+      "id": "documentation",
+      "description": "README, docs, runbooks, changelogs, guides, or developer experience.",
+      "keywords": ["docs", "documentation", "readme", "guide", "runbook", "changelog", "developer experience"],
+      "primary": "Documentation Worker",
+      "secondary": ["Delivery Lead"],
+      "validation": "command/path check"
+    },
+    {
+      "id": "automation",
+      "description": "Scripts, scheduled jobs, repetitive task automation, or dry runs.",
+      "keywords": ["automation", "script", "scheduled", "cron", "job", "dry run", "batch"],
+      "primary": "Automation Workflow Worker",
+      "secondary": ["DevOps CI Worker"],
+      "validation": "dry run/sample input"
+    },
+    {
+      "id": "localization",
+      "description": "Translation, localization, language matching, or terminology.",
+      "keywords": ["translate", "translation", "localization", "language", "french", "english", "terminology"],
+      "primary": "Translation Localization Worker",
+      "secondary": ["Documentation Worker"],
+      "validation": "terminology check"
+    }
+  ]
+}

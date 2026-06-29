@@ -1,0 +1,154 @@
+name: Receive Agent Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        required: true
+        type: string
+      source_channel:
+        required: true
+        default: manual
+        type: string
+      agent:
+        required: true
+        type: string
+      category:
+        required: true
+        type: choice
+        options:
+          - routing
+          - governance
+          - memory
+          - quality
+          - implementation
+          - finance
+          - research
+          - security
+          - devops
+          - docs
+          - provenance
+          - architecture
+          - ml
+          - cloud
+          - observability
+          - compliance
+          - mobile
+          - dependency
+          - personality
+      confidence:
+        required: true
+        default: medium
+        type: choice
+        options:
+          - high
+          - medium
+          - low
+      privacy:
+        required: true
+        default: internal
+        type: choice
+        options:
+          - public
+          - internal
+          - sensitive-redacted
+      requested_action:
+        required: true
+        default: review
+        type: choice
+        options:
+          - store
+          - review
+          - update-routing
+          - update-memory
+          - create-follow-up
+          - none
+      severity:
+        required: true
+        default: medium
+        type: choice
+        options:
+          - critical
+          - high
+          - medium
+          - low
+          - info
+      summary:
+        required: true
+        type: string
+      evidence:
+        required: false
+        default: ""
+        type: string
+      validation:
+        required: false
+        default: ""
+        type: string
+      reusable_lesson:
+        required: false
+        default: ""
+        type: string
+      next_action:
+        required: false
+        default: ""
+        type: string
+      outcome:
+        required: false
+        default: ""
+        type: string
+      selected_agents:
+        required: false
+        default: ""
+        type: string
+      target_files:
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: receive-agent-report
+  cancel-in-progress: false
+
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Receive report
+        run: |
+          python .github/scripts/receive_agent_report.py \
+            --source-repo "${{ inputs.source_repo }}" \
+            --source-channel "${{ inputs.source_channel }}" \
+            --agent "${{ inputs.agent }}" \
+            --category "${{ inputs.category }}" \
+            --confidence "${{ inputs.confidence }}" \
+            --privacy "${{ inputs.privacy }}" \
+            --severity "${{ inputs.severity }}" \
+            --requested-action "${{ inputs.requested_action }}" \
+            --summary "${{ inputs.summary }}" \
+            --evidence "${{ inputs.evidence }}" \
+            --validation "${{ inputs.validation }}" \
+            --reusable-lesson "${{ inputs.reusable_lesson }}" \
+            --next-action "${{ inputs.next_action }}" \
+            --outcome "${{ inputs.outcome }}" \
+            --selected-agents "${{ inputs.selected_agents }}" \
+            --target-files "${{ inputs.target_files }}"
+      - name: Validate and commit
+        run: |
+          python .github/scripts/validate_copilot_customizations.py
+          python .github/scripts/validate_json_contracts.py
+          python .github/scripts/scan_sensitive_content.py .github/memory/inbox
+          python .github/scripts/maintain_memory_inbox.py --write-index
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/memory/inbox
+          git commit -m "chore(memory): receive agent report"
+          git push

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent System Governance"
+  short_description: "Create and harden agents, prompts, skills, and routing."
+  default_prompt: "Use $agent-system-governance to improve the agent system with valid frontmatter, clear ownership, and validation."
+policy:
+  allow_implicit_invocation: true
+

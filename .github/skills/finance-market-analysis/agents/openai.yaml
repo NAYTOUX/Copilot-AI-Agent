@@ -1,0 +1,7 @@
+interface:
+  display_name: "Finance Market Analysis"
+  short_description: "Analyze finance and market tasks rigorously."
+  default_prompt: "Use $finance-market-analysis to handle this finance or market task with explicit formulas, assumptions, sources, and validation."
+policy:
+  allow_implicit_invocation: true
+

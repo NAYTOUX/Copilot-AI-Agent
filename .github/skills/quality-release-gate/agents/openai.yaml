@@ -1,0 +1,7 @@
+interface:
+  display_name: "Quality Release Gate"
+  short_description: "Review and validate before release."
+  default_prompt: "Use $quality-release-gate to review this change for bugs, regressions, missing tests, and release readiness."
+policy:
+  allow_implicit_invocation: true
+

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Report",
+  "type": "object",
+  "required": [
+    "source_repo",
+    "source_channel",
+    "agent",
+    "category",
+    "confidence",
+    "privacy",
+    "severity",
+    "requested_action",
+    "summary"
+  ],
+  "properties": {
+    "source_repo": {"type": "string", "minLength": 1},
+    "source_channel": {"type": "string", "minLength": 1},
+    "agent": {"type": "string", "minLength": 1},
+    "category": {
+      "type": "string",
+      "enum": [
+        "routing",
+        "governance",
+        "memory",
+        "quality",
+        "implementation",
+        "finance",
+        "research",
+        "security",
+        "devops",
+        "docs",
+        "provenance",
+        "architecture",
+        "ml",
+        "cloud",
+        "observability",
+        "compliance",
+        "mobile",
+        "dependency",
+        "personality"
+      ]
+    },
+    "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+    "privacy": {
+      "type": "string",
+      "enum": ["public", "internal", "sensitive-redacted"]
+    },
+    "severity": {"type": "string", "enum": ["critical", "high", "medium", "low", "info"]},
+    "requested_action": {
+      "type": "string",
+      "enum": ["store", "review", "update-routing", "update-memory", "create-follow-up", "none"]
+    },
+    "summary": {"type": "string", "minLength": 1},
+    "evidence": {"type": "string"},
+    "validation": {"type": "string"},
+    "reusable_lesson": {"type": "string"},
+    "next_action": {"type": "string"},
+    "target_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "selected_agents": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["completed", "partial", "blocked", "failed"]
+    },
+    "agent_feedback": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent", "usefulness"],
+        "properties": {
+          "agent": {"type": "string", "minLength": 1},
+          "role": {"type": "string"},
+          "usefulness": {"type": "string", "enum": ["high", "medium", "low", "harmful"]},
+          "issue": {"type": "string"},
+          "lesson": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

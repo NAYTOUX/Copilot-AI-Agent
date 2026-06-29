@@ -1,0 +1,35 @@
+name: Relay Agent Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      summary:
+        required: true
+        type: string
+
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout target agent hub
+        uses: actions/checkout@v4
+        with:
+          repository: owner/universal-copilot-agent-hub
+          token: ${{ secrets.AGENT_HUB_PAT }}
+          path: agent-hub
+
+      - name: Write report
+        working-directory: agent-hub
+        run: |
+          python .github/scripts/receive_agent_report.py \
+            --source-repo "${{ github.repository }}" \
+            --source-channel github-actions \
+            --agent "Repo Orchestrator" \
+            --category provenance \
+            --confidence medium \
+            --privacy internal \
+            --severity medium \
+            --requested-action review \
+            --summary "${{ inputs.summary }}"

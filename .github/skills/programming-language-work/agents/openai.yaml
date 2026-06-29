@@ -1,0 +1,7 @@
+interface:
+  display_name: "Programming Language Work"
+  short_description: "Route code work to the right language worker."
+  default_prompt: "Use $programming-language-work to route and execute this code task with language-specific validation."
+policy:
+  allow_implicit_invocation: true
+

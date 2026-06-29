@@ -1,0 +1,40 @@
+{
+  "source_repo": "owner/repo",
+  "source_channel": "orchestrator-usage",
+  "agent": "Universal Orchestrator",
+  "category": "personality",
+  "confidence": "high",
+  "privacy": "internal",
+  "severity": "info",
+  "requested_action": "review",
+  "summary": "Orchestrator completed a routing and implementation session with reusable personality feedback.",
+  "evidence": "Selected agents: Universal Orchestrator, Memory Governor. Outcome: completed.",
+  "validation": "python .github/scripts/run_orchestrator_checks.py",
+  "reusable_lesson": "Route memory feedback to Memory Governor and Personality Evolution Governor when repeated specialist gaps appear.",
+  "next_action": "Review whether a new personality or routing eval is warranted.",
+  "selected_agents": [
+    "Universal Orchestrator",
+    "Memory Governor"
+  ],
+  "outcome": "completed",
+  "agent_feedback": [
+    {
+      "agent": "Universal Orchestrator",
+      "role": "routing and synthesis",
+      "usefulness": "high",
+      "issue": "",
+      "lesson": "Kept the work scoped and validated before closeout."
+    },
+    {
+      "agent": "Memory Governor",
+      "role": "memory closeout",
+      "usefulness": "medium",
+      "issue": "Needed clearer downstream usage evidence.",
+      "lesson": "Usage reports should include selected agents and validation evidence."
+    }
+  ],
+  "target_files": [
+    ".github/agent-registry.json",
+    ".github/routing-rules.json"
+  ]
+}

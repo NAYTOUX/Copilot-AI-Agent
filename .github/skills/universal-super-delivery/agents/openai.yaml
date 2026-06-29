@@ -1,0 +1,7 @@
+interface:
+  display_name: "Universal Super Delivery"
+  short_description: "Route, implement, validate, and close out complex work."
+  default_prompt: "Use $universal-super-delivery to deliver this request end to end with routing, validation, and concise closeout."
+policy:
+  allow_implicit_invocation: true
+

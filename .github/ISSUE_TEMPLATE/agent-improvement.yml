@@ -1,0 +1,40 @@
+name: Agent improvement
+description: Propose a new agent, skill, instruction, prompt, or governance rule.
+title: "[agent] "
+labels: ["agent-hub", "improvement"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - agent
+        - instruction
+        - prompt
+        - skill
+        - memory
+        - validation
+        - documentation
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Need
+      description: Describe the concrete gap or repeated failure.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: State the exact files, routing behavior, or contract changes expected.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: List the checks or examples that should prove the change works.
+    validations:
+      required: true

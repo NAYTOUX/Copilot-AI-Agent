@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research and Verification"
+  short_description: "Find authoritative current facts safely."
+  default_prompt: "Use $research-and-verification to verify this with authoritative sources and a privacy-safe workflow."
+policy:
+  allow_implicit_invocation: true
+

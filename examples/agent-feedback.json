@@ -1,0 +1,16 @@
+[
+  {
+    "agent": "Universal Orchestrator",
+    "role": "routing and synthesis",
+    "usefulness": "high",
+    "issue": "",
+    "lesson": "Kept the manager brief and validation gate explicit."
+  },
+  {
+    "agent": "Testing Worker",
+    "role": "validation",
+    "usefulness": "medium",
+    "issue": "Needed stronger fixture guidance.",
+    "lesson": "Parser changes should include fixture coverage."
+  }
+]

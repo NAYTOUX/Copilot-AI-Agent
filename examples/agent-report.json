@@ -1,0 +1,19 @@
+{
+  "source_repo": "owner/repo",
+  "source_channel": "manual",
+  "agent": "Repo Orchestrator",
+  "category": "quality",
+  "confidence": "high",
+  "privacy": "internal",
+  "severity": "medium",
+  "requested_action": "review",
+  "summary": "Validated registry coverage.",
+  "evidence": "Unit test output and generated docs check.",
+  "validation": "python .github/scripts/run_orchestrator_checks.py",
+  "reusable_lesson": "Keep registry coverage tested.",
+  "next_action": "None.",
+  "target_files": [
+    ".github/agent-registry.json",
+    "docs/AGENT_CATALOG.md"
+  ]
+}
