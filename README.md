@@ -310,6 +310,101 @@ Le repo contient 8 skills officiels dans `.github/skills/`.
 
 ---
 
+## Playbook d’interaction entre agents
+
+### Template de **manager brief** (à compléter avant délégation)
+
+- **Objectif explicite** : résultat métier/technique attendu en 1 phrase.
+- **Contexte utile** : fichiers, incidents, contraintes d’environnement, échéance.
+- **Contraintes** : sécurité, conformité, performance, coût, non-régression.
+- **Done criteria** : conditions de succès vérifiables (ex. tests, lint, doc, diff attendu).
+- **Non-objectifs** : ce qui ne doit pas être modifié.
+- **Périmètre de fichiers** : cibles connues + inconnues à explorer.
+- **Risque** : faible / moyen / élevé + impact utilisateur.
+- **Évidence de validation requise** : commandes à exécuter, captures/logs, checks CI.
+
+### Template de **specialist report** (retour standardisé)
+
+- **Résumé (1 phrase)** : ce qui a été fait.
+- **Hypothèses prises** : décisions implicites devenues explicites.
+- **Changements** :
+  - fichiers touchés ;
+  - contrats/API modifiés (oui/non) ;
+  - migrations/config ajoutées (oui/non).
+- **Validation exécutée** :
+  - commandes lancées ;
+  - résultats (pass/fail) ;
+  - limites connues.
+- **Risques résiduels** : sécurité, données, compatibilité, dette.
+- **Recommandation de handoff** : prochain propriétaire + action attendue.
+
+### Anti-patterns de handoff (à éviter)
+
+- **Handoff sans done criteria** → crée des boucles.  
+- **“C’est corrigé” sans preuve** → toujours joindre validations exécutées.  
+- **Diff large non ciblé** → privilégier changements minimaux et traçables.  
+- **Suppositions non documentées** → lister hypothèses/impacts explicitement.  
+- **Escalade tardive des risques sécurité/compliance** → escalader dès détection.  
+- **Passage de relais sans propriétaire unique** → nommer un owner principal clair.
+
+---
+
+## Fiches opérationnelles par famille d’agents
+
+### Famille **Governance**
+
+- **Déclencheur** : demande floue, conflit d’instructions, besoin de routage multi-agents.
+- **Input attendu** : objectif, contraintes, niveau de risque, périmètre initial.
+- **Output attendu** : manager brief, plan de routage, critères d’acceptation.
+- **Validations minimales** : cohérence avec `AGENTS.md`, instructions `.github`, traçabilité des décisions.
+
+### Famille **Engineering**
+
+- **Déclencheur** : implémentation, bugfix, refactor, tests, évolution API/UI.
+- **Input attendu** : reproductibilité, fichiers/symboles concernés, comportement attendu.
+- **Output attendu** : patch minimal, tests/QA, note d’impact technique.
+- **Validations minimales** : tests ciblés pass, lint/typecheck (si applicable), absence de régression visible.
+
+### Famille **Security / Compliance**
+
+- **Déclencheur** : secrets, permissions, auth, dépendances, exigences légales/politiques.
+- **Input attendu** : menace/risque identifié, surface impactée, exigences réglementaires.
+- **Output attendu** : correctifs de sécurité, recommandations least-privilege, checklist conformité.
+- **Validations minimales** : aucun secret exposé, permissions minimales, preuves d’audit/screening dépendances.
+
+### Famille **Data / Research**
+
+- **Déclencheur** : analyse marché, logique quantitative, sourcing externe, validation d’hypothèses.
+- **Input attendu** : question métier, métriques, période, sources autorisées.
+- **Output attendu** : analyse reproductible, hypothèses explicites, limites documentées.
+- **Validations minimales** : formules claires, sources citées, gestion du manque de données.
+
+### Famille **Operations**
+
+- **Déclencheur** : CI/CD, infra cloud, observabilité, release, incidents.
+- **Input attendu** : environnement cible, pipeline existant, SLO/alertes, contraintes déploiement.
+- **Output attendu** : changement opérationnel exécutable, runbook court, rollback plan.
+- **Validations minimales** : checks pipeline verts, permissions workflow minimales, preuves de monitoring/health.
+
+---
+
+## Scénarios de routage concrets
+
+| Requête utilisateur | Owner principal | Secondaire(s) | Évidence de validation attendue |
+|---|---|---|---|
+| “Corrige ce bug Python en prod” | Delivery Lead | Python Worker, Debugger, Testing Worker | reproduction + test ciblé pass + diff minimal |
+| “Refactor API backend sans casser les clients” | Software Architect | Backend API Worker, Testing Worker | contrats/API inchangés ou versionnés + tests d’intégration |
+| “Ajoute une page UI responsive accessible” | Frontend UI Worker | JavaScript/TypeScript Worker, Testing Worker | audit accessibilité de base + test responsive + build OK |
+| “Durcis les permissions du workflow GitHub Actions” | DevOps CI Worker | Security Worker | permissions least-privilege + exécution workflow verte |
+| “Vérifie risque de fuite de secrets dans le repo” | Security Worker | Dependency Supply Chain Worker | scan secrets/dépendances + preuve de remédiation |
+| “Met à jour la doc de release process” | Documentation Worker | Quality Governor | doc alignée avec commandes réelles + liens/fichiers vérifiés |
+| “Analyse performance lente sur endpoint critique” | Performance Optimizer | Backend API Worker, Observability Worker | métriques avant/après + hypothèse confirmée par traces/logs |
+| “Prépare une revue de code orientée risques” | Quality Governor | code-review skill / Security Worker | findings classés par sévérité + risques résiduels explicites |
+| “Crée une analyse macro + impact portefeuille” | Data Finance Worker | Macro Economist Worker, Research Worker | hypothèses + formules + sources + limites |
+| “Incident: erreurs 500 intermittentes après déploiement” | Observability Worker | DevOps CI Worker, Backend API Worker | timeline incident + corrélation logs/deploy + fix validé |
+
+---
+
 ## Quick start et réutilisation rapide
 
 ### Boot local
