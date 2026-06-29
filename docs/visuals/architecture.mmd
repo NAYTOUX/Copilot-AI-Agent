@@ -1,0 +1,8 @@
+flowchart LR
+    U[User Request] --> O[Universal Orchestrator]
+    O --> MB[Manager Brief]
+    MB --> SA[Specialist Agents]
+    SA --> V[Validation Gate]
+    V --> R[Release-Ready Output]
+    R --> M[Memory Feedback]
+    M --> O

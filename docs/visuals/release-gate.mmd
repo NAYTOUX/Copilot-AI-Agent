@@ -1,0 +1,9 @@
+flowchart TD
+    A[Change proposed] --> B[Customization validation]
+    B --> C[Contracts + relationships check]
+    C --> D[Orchestrator checks]
+    D --> E[Security/privacy sanity]
+    E --> F{All green?}
+    F -- Yes --> G[Publish]
+    F -- No --> H[Fix + re-run]
+    H --> B

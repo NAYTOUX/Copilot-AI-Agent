@@ -1,234 +1,232 @@
-# NAYTOUX/Copilot-AI-Agent
+# Copilot-AI-Agent
 
-[![Version](https://img.shields.io/badge/version-0.1.0-informational)](#)
-[![Statut](https://img.shields.io/badge/statut-production--ready-2ea44f)](#)
-[![Validation](https://img.shields.io/badge/validation-orchestrator%20checks-blue)](#)
-[![Licence](https://img.shields.io/badge/licence-propri%C3%A9taire%20non--commerciale-red)](#)
-[![Contributions](https://img.shields.io/badge/contributions-encadr%C3%A9es-purple)](#)
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-0A66C2?style=for-the-badge" />
+  <img alt="Status" src="https://img.shields.io/badge/status-Production%20Ready-1F883D?style=for-the-badge" />
+  <img alt="License" src="https://img.shields.io/badge/license-Proprietary%20Non--Commercial-D1242F?style=for-the-badge" />
+  <img alt="Made by" src="https://img.shields.io/badge/Made%20by-Maxence%20Messarra-6F42C1?style=for-the-badge" />
+</p>
 
-> **Hub universel d’agents Copilot** pour industrialiser la création, la réutilisation et la gouvernance de personnalités d’agents dans vos futurs projets.
-
----
-
-## Résumé exécutif
-
-`NAYTOUX/Copilot-AI-Agent` est un référentiel central prêt à l’emploi pour :
-- standardiser des **personnalités d’agents** réutilisables,
-- orchestrer des workflows de livraison multi-domaines,
-- sécuriser la qualité via des **gates de validation**,
-- capitaliser l’apprentissage dans une mémoire append-only.
-
-Ce dépôt permet un **démarrage rapide** d’un système d’agents Copilot dans un nouveau repo, avec une gouvernance claire, des instructions path-scopées, des skills métiers, et des scripts de contrôle automatisés.
+<p align="center">
+  <b>A high-governance Copilot agent hub to reuse personalities fast, scale execution quality, and keep enterprise control.</b>
+</p>
 
 ---
 
-## Proposition de valeur
+## Why this repository exists
 
-| Besoin entreprise | Réponse apportée par ce repo | Impact |
+`Copilot-AI-Agent` is your **central operating system** for agent personalities.
+It lets you bootstrap a new repository in minutes with:
+
+- battle-tested agent personas,
+- strict routing and governance,
+- validation guardrails,
+- reusable skills/prompts,
+- memory-based continuous improvement.
+
+If your goal is: **"I want reusable AI specialists ready on day one"**, this repo is the base.
+
+---
+
+## At a glance ✨
+
+| Capability | What you get | Business value |
 |---|---|---|
-| Accélérer l’adoption Copilot à l’échelle | Base unifiée (`AGENTS.md`, `.github/instructions`, `.github/skills`) | Time-to-value réduit |
-| Réutiliser des personas d’agents dans plusieurs projets | Patterns d’import/export + structure standardisée | Effort de setup minimisé |
-| Maîtriser le risque qualité/sécurité | Validation scriptée + règles de gouvernance | Conformité renforcée |
-| Capitaliser le savoir d’exécution | Mémoire append-only (`.github/memory`) | Amélioration continue traçable |
+| Reusable personalities | Curated specialist agents under `.github/agents/` | Faster project startup |
+| Governance by design | Routing + manager briefs + quality gates | Lower operational risk |
+| Portable workflows | Skills/prompts/instructions ready to import | Standardized delivery |
+| Validation-first | Python checks and release gates | Safer merges and releases |
+| Memory loop | Append-only learning and feedback | Compounding system quality |
 
 ---
 
-## Vue d’architecture
+## Visual architecture
 
 ```mermaid
-flowchart TD
-    A[AGENTS.md<br/>Contrat opératoire] --> B[Orchestrateur]
-    B --> C[.github/agents<br/>Personnalités]
-    B --> D[.github/instructions<br/>Règles path-scopées]
-    B --> E[.github/skills<br/>Workflows spécialisés]
-    B --> F[.github/memory<br/>Apprentissage append-only]
-    B --> G[.github/hooks<br/>Garde-fous lifecycle]
-    C --> H[Exécution par domaine]
-    D --> H
-    E --> H
-    H --> I[Validation scripts]
-    I --> J[Release/Adoption downstream]
+flowchart LR
+    A[User Request] --> B[Universal Orchestrator]
+    B --> C[Manager Brief]
+    C --> D[Specialist Agents]
+    D --> E[Implementation or Review]
+    E --> F[Validation Scripts]
+    F --> G[Release Gate]
+    G --> H[Memory Feedback Loop]
+    H --> B
 ```
 
 ---
 
-## Cartographie des composants (dossier → rôle)
+## Repository map (what matters first)
 
-| Chemin | Rôle principal | Quand l’utiliser |
-|---|---|---|
-| `AGENTS.md` | Contrat d’orchestration global | Toujours en premier |
-| `.github/copilot-instructions.md` | Règles Copilot transverses | À chaque session |
-| `.github/agents/` | Profils d’agents spécialisés | Quand vous créez/ajustez une personnalité |
-| `.github/instructions/` | Instructions ciblées par type de fichier (`applyTo`) | Pour imposer des normes localisées |
-| `.github/skills/` | Workflows multi-étapes réutilisables | Pour routage/domaines complexes |
-| `.github/memory/` | Mémoire append-only & feedback loop | Pour capitalisation inter-session |
-| `.github/hooks/` | Guardrails d’exécution et conformité | Pour sécuriser le cycle Copilot |
-| `.github/scripts/` | Validation, relay, reporting | Avant merge/release |
-| `docs/` | Documentation opérationnelle et gouvernance | Adoption, runbooks, politiques |
-| `examples/` | Exemples de payloads/briefs/reports | Bootstrap rapide des intégrations |
+```text
+AGENTS.md                           # Core operating contract
+.github/copilot-instructions.md     # Global Copilot rules
+.github/agents/                     # Reusable agent personalities
+.github/instructions/               # Path-scoped rules (applyTo)
+.github/skills/                     # Multi-step workflows
+.github/prompts/                    # Reusable task entrypoints
+.github/scripts/                    # Validation, routing, reporting utilities
+.github/memory/                     # Append-only learning artifacts
+docs/                               # Playbooks and governance guides
+examples/                           # Payload and brief templates
+```
 
 ---
 
-## Quick Start (réaliste et immédiat)
+## Quick start (5 minutes)
 
-### Pré-requis
-- Git
-- Python 3.x
-- VS Code + GitHub Copilot
-
-### Démarrage en 5 minutes
-- [ ] Cloner le repo
-- [ ] Lire `AGENTS.md`
-- [ ] Lire `.github/copilot-instructions.md`
-- [ ] Lancer les validations de customisation
-- [ ] Lancer les checks d’orchestration
+### 1) Clone
 
 ```bash
 git clone https://github.com/NAYTOUX/Copilot-AI-Agent.git
 cd Copilot-AI-Agent
-python .github/scripts/validate_copilot_customizations.py
-python .github/scripts/run_orchestrator_checks.py
 ```
 
----
+### 2) Validate the hub
 
-## Workflow express de réutilisation des personnalités d’agents
-
-### Objectif
-Réutiliser rapidement une personnalité d’agent dans un nouveau projet sans reconstruire la gouvernance.
-
-### Processus recommandé
-1. **Importer le socle** : `AGENTS.md`, `.github/copilot-instructions.md`, `.github/instructions/`, `.github/skills/`.
-2. **Sélectionner les personas** dans `.github/agents/` selon vos cas d’usage.
-3. **Conserver les scripts de validation** et adapter uniquement les chemins/commandes projet.
-4. **Brancher la mémoire** (`.github/memory/`) en mode append-only.
-5. **Valider avant activation** avec les scripts Python natifs du hub.
-
-### Checklist de réutilisation
-- [ ] Contrat d’orchestration copié sans altération critique
-- [ ] Instructions `applyTo` alignées au nouveau repo
-- [ ] Skills pertinents activés (sans surcharge inutile)
-- [ ] Hooks/guardrails compatibles workflow local
-- [ ] Validation exécutée avec succès
-
----
-
-## Options d’import/export
-
-| Mode | Description | Avantages | Limites |
-|---|---|---|---|
-| Import manuel sélectif | Copie ciblée de fichiers/dossiers | Contrôle fin | Plus d’effort initial |
-| Import “hub core” | Reprise quasi complète du socle `.github` + `AGENTS.md` | Déploiement rapide | Nécessite harmonisation légère |
-| Export de persona | Extraction d’un agent + ses instructions/skills associés | Réutilisation granulaire | Dépendances à vérifier |
-| Export de gouvernance | Portage des scripts/checks et docs de process | Uniformité multi-repos | Demande discipline d’exécution |
-
----
-
-## Gouvernance & workflow de validation
-
-### Standards de contrôle
-- Validation des customisations Copilot.
-- Vérification des règles d’orchestration.
-- Contrôle de cohérence des assets `.github`.
-
-### Commandes de référence
 ```bash
 python .github/scripts/validate_copilot_customizations.py
 python .github/scripts/run_orchestrator_checks.py
 ```
 
-### Gate de qualité (avant merge)
-- [ ] Architecture d’agents cohérente
-- [ ] Instructions non contradictoires
-- [ ] Skills routables et testables
-- [ ] Mémoire append-only respectée
-- [ ] Documentation alignée sur le comportement réel
+### 3) Reuse in a target project
+
+```bash
+python .github/scripts/export_agent_hub.py --target C:/path/to/target-repo
+```
 
 ---
 
-## Sécurité & confidentialité
+## Fast personality reuse workflow 🚀
 
-| Domaine | Exigence |
-|---|---|
-| Secrets | Ne jamais exposer tokens, clés privées, variables d’environnement |
-| Données privées | Exclusion stricte des payloads sensibles dans docs/memory |
-| Mémoire | Politique append-only, pas de réécriture destructive |
-| Automatisation | Permissions minimales, contrôles explicites |
+```mermaid
+flowchart TD
+    A[Pick target repo] --> B[Copy core contract files]
+    B --> C[Select personas from .github/agents]
+    C --> D[Bring matching instructions/skills]
+    D --> E[Adapt project-native validation commands]
+    E --> F[Run checks]
+    F --> G[Go live]
+```
 
-**Principe directeur** : aucune fuite de données, aucune validation “déclarative” sans exécution réelle.
+### Minimal import set
 
----
-
-## Modèle de contribution
-
-### Flux recommandé
-1. Créer une branche dédiée.
-2. Modifier de façon ciblée (pas de refactor hors périmètre).
-3. Exécuter les scripts de validation.
-4. Documenter impacts et limites.
-5. Ouvrir PR avec justification claire.
-
-### Bonnes pratiques
-- [ ] Commits atomiques et message explicite
-- [ ] Respect des conventions existantes
-- [ ] Traçabilité des décisions dans `docs/` si nécessaire
-- [ ] Zéro secret en clair
+- `AGENTS.md`
+- `.github/copilot-instructions.md`
+- `.github/agents/`
+- `.github/instructions/`
+- `.github/skills/`
+- `.github/hooks/`
+- `.github/memory/MEMORY_INDEX.md`
+- `.github/memory/ORCHESTRATOR_ROUTING_SCORECARD.md`
+- `.github/scripts/validate_copilot_customizations.py`
 
 ---
 
-## Roadmap (indicative)
+## Enterprise operating model
 
-| Horizon | Priorité |
-|---|---|
-| Court terme | Renforcement des templates d’adoption downstream |
-| Moyen terme | Couverture de validation élargie (domaines spécialisés) |
-| Moyen terme | Catalogue de personnalités enrichi avec métriques d’efficacité |
-| Long terme | Gouvernance adaptive cross-repo avec feedback loops automatisés |
+### 1) Routing
+- Start with objective + constraints.
+- Build a manager brief.
+- Delegate to the minimum specialist set.
+
+### 2) Execution
+- Implement with narrow scope.
+- Keep architecture and naming conventions stable.
+
+### 3) Verification
+- Run objective checks.
+- Record residual risk explicitly.
+
+### 4) Learning
+- Append outcomes into memory artifacts.
+- Improve profiles without destructive rewrites.
+
+---
+
+## Validation commands
+
+```bash
+python .github/scripts/validate_copilot_customizations.py
+python .github/scripts/validate_json_contracts.py
+python .github/scripts/validate_agent_relationships.py
+python .github/scripts/run_orchestrator_checks.py
+python .github/scripts/audit_agent_hub.py
+python .github/scripts/prepare_release.py --allow-dirty
+```
+
+---
+
+## Visual pack (ready to integrate)
+
+This repository now includes ready-to-use visual sources in:
+
+- `docs/visuals/architecture.mmd`
+- `docs/visuals/personality-reuse-flow.mmd`
+- `docs/visuals/release-gate.mmd`
+- `docs/visuals/governance-raci.mmd`
+- `docs/visuals/memory-loop.mmd`
+
+You can paste these Mermaid diagrams into:
+- README sections,
+- internal runbooks,
+- Confluence/Notion pages,
+- onboarding decks.
+
+---
+
+## Governance and compliance notes
+
+- No secrets in docs, memory, prompts, or examples.
+- Use least privilege for automation/workflows.
+- Keep memory append-only.
+- Never claim tests/checks that were not executed.
+
+---
+
+## Suggested badges you can add later
+
+- CI status badge
+- Release badge
+- Coverage badge
+- Security scan badge
+- Dependency freshness badge
 
 ---
 
 ## FAQ
 
-### Ce repo est-il un framework d’application ?
-Non. C’est un **hub de gouvernance et de réutilisation d’agents Copilot**.
+### Is this an application framework?
+No. It is an **agent governance and reuse hub**.
 
-### Puis-je l’utiliser tel quel dans un repo produit ?
-Oui, avec adaptation des instructions `applyTo`, commandes de validation, et conventions projet.
+### Can I use all files as-is in any repo?
+You can import quickly, then adapt validation commands to the target repo.
 
-### Quelle est la première lecture obligatoire ?
-`AGENTS.md`, puis `.github/copilot-instructions.md`.
+### What is the best entrypoint?
+Start with `AGENTS.md`, then `.github/copilot-instructions.md`.
 
-### Comment vérifier qu’une personnalisation est saine ?
-Exécuter les scripts de validation fournis dans `.github/scripts/`.
-
-### Ce repo est-il open source au sens permissif ?
-Non. Voir `LICENSE.md` (propriétaire, usage non commercial par défaut).
+### Is this open-source permissive?
+No. This repository uses a proprietary non-commercial license by default.
 
 ---
 
-## Support
+## Ownership
 
-- **Owner GitHub** : `NAYTOUX`
-- **Repository** : `NAYTOUX/Copilot-AI-Agent`
-- **Canaux recommandés** :
-  - Issues GitHub (support technique/documentation)
-  - Discussions/PR pour évolution structurante
+- **Owner:** Maxence Messarra
+- **GitHub:** https://github.com/NAYTOUX
+- **Repository:** https://github.com/NAYTOUX/Copilot-AI-Agent
 
 ---
 
-## Légal & licence
+## License
 
-Ce dépôt est distribué sous licence **propriétaire non commerciale**.  
-Tous droits réservés. Utilisation commerciale interdite sans autorisation écrite préalable.
-
-Voir le document complet : **`LICENSE.md`**.
+See `LICENSE.md`.
+This project is authored by Maxence Messarra and distributed under a **Proprietary Non-Commercial License**.
+Commercial use requires explicit prior written permission.
 
 ---
 
-## TL;DR exécutable
+## One-screen executive summary
 
-- [ ] Cloner le repo
-- [ ] Lire `AGENTS.md`
-- [ ] Lancer les 2 scripts de validation
-- [ ] Réutiliser les personas/instructions/skills selon votre cible
-- [ ] Contribuer via PR avec preuves de validation
+If you need reusable AI personalities with governance, quality gates, and legal control,
+`Copilot-AI-Agent` is your **enterprise-ready base repo**.

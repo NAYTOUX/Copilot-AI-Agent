@@ -1,148 +1,149 @@
-# Licence Propriétaire Non Commerciale
-## NAYTOUX/Copilot-AI-Agent
+# Proprietary Non-Commercial License
+## Copilot-AI-Agent
 
-**Version :** 1.0
-**Date d’effet :** 28 juin 2026
-**Titulaire des droits :** Maxence Messarra
-**Repository :** `NAYTOUX/Copilot-AI-Agent`
-
----
-
-## 1. Objet
-
-La présente licence encadre l’accès, l’utilisation, la reproduction et la redistribution du contenu du dépôt `NAYTOUX/Copilot-AI-Agent` (ci-après le « Logiciel »), incluant notamment le code source, la documentation, les fichiers de configuration, les workflows, les prompts, les instructions, les skills et les exemples.
+**Version:** 1.0  
+**Effective Date:** June 28, 2026  
+**Copyright Holder:** Maxence Messarra  
+**Repository:** `NAYTOUX/Copilot-AI-Agent`
 
 ---
 
-## 2. Propriété intellectuelle
+## 1. Purpose
 
-Le Logiciel est une œuvre protégée par le droit d’auteur.
-Sauf mention contraire explicite, **l’ensemble du code et du contenu est authored by Maxence Messarra**.
-
-**Tous droits sont réservés.**
-Aucun droit n’est concédé en dehors de ceux expressément prévus par la présente licence.
+This license governs access to, use of, reproduction of, modification of, and redistribution of the contents of the `NAYTOUX/Copilot-AI-Agent` repository (the “Software”), including source code, documentation, configuration files, workflows, prompts, instructions, skills, and examples.
 
 ---
 
-## 3. Licence accordée (usage non commercial)
+## 2. Ownership
 
-Sous réserve du respect intégral de la présente licence, il est accordé une autorisation **personnelle, révocable, non exclusive, non transférable** pour :
+The Software is protected by copyright and related intellectual property laws.
+Unless expressly stated otherwise, the Software is authored by **Maxence Messarra**.
 
-1. consulter le Logiciel ;
-2. l’utiliser à des fins **strictement non commerciales** ;
-3. créer des adaptations internes non commerciales ;
-4. redistribuer des copies non commerciales dans les conditions de l’Article 5.
+**All rights reserved.** No rights are granted except those explicitly stated in this license.
 
 ---
 
-## 4. Interdiction d’usage commercial
+## 3. License Grant (Non-Commercial)
 
-Tout usage commercial est strictement interdit sans autorisation écrite préalable et explicite du titulaire des droits.
+Subject to full compliance with this license, you are granted a **personal, revocable, non-exclusive, non-transferable** right to:
 
-Est notamment considéré comme usage commercial (liste non exhaustive) :
-- exploitation dans une offre payante (produit, service, SaaS, conseil) ;
-- utilisation interne dans une activité générant un avantage économique direct ;
-- redistribution contre rémunération, licence payante, ou accès premium ;
-- intégration dans un package, bundle ou plateforme monétisée.
-
-Pour toute autorisation commerciale, une demande écrite doit être adressée via le profil GitHub du propriétaire (voir Article 12).
+1. view and access the Software;
+2. use the Software for **strictly non-commercial purposes**;
+3. create non-commercial internal modifications;
+4. redistribute non-commercial copies under Section 5.
 
 ---
 
-## 5. Redistribution
+## 4. Commercial Use Prohibited
 
-La redistribution du Logiciel ou de ses parties est autorisée uniquement si toutes les conditions suivantes sont respectées :
+Any commercial use is strictly prohibited unless you obtain prior explicit written authorization from the copyright holder.
 
-- conservation du présent `LICENSE.md` dans son intégralité ;
-- maintien des mentions de copyright et d’attribution ;
-- indication claire des modifications réalisées ;
-- redistribution **uniquement non commerciale** ;
-- absence de suppression des notices légales et avertissements.
+Commercial use includes, without limitation:
 
-Toute redistribution ne respectant pas ces conditions est interdite.
+- use in paid products, paid services, SaaS, consulting, or monetized offerings;
+- internal use in a for-profit context that creates direct economic benefit;
+- paid redistribution, sublicensing, or premium access distribution;
+- inclusion in monetized bundles, platforms, or products.
 
----
-
-## 6. Œuvres dérivées
-
-Les œuvres dérivées sont autorisées uniquement en contexte non commercial, sous réserve de :
-
-- conserver une attribution claire à Maxence Messarra ;
-- documenter les changements substantiels ;
-- ne pas induire en erreur sur l’origine officielle du projet ;
-- respecter l’interdiction d’usage commercial de l’Article 4.
-
-Le titulaire des droits se réserve le droit d’exiger l’arrêt de toute distribution dérivée non conforme.
+For commercial licensing requests, contact the owner via GitHub (see Section 13).
 
 ---
 
-## 7. Attribution
+## 5. Redistribution Conditions
 
-Toute copie, redistribution ou dérivé doit inclure au minimum :
+Redistribution of the Software, in whole or in part, is allowed only if all of the following conditions are met:
 
-- le nom du titulaire : **Maxence Messarra** ;
-- le repository source : **NAYTOUX/Copilot-AI-Agent** ;
-- un lien vers le profil GitHub propriétaire ;
-- la mention de la présente licence.
+- this `LICENSE.md` is included in full;
+- copyright and attribution notices are preserved;
+- material modifications are clearly documented;
+- redistribution remains strictly non-commercial;
+- legal notices and disclaimers are not removed.
 
----
-
-## 8. Restrictions supplémentaires
-
-Il est interdit de :
-
-- retirer ou masquer les notices de propriété ;
-- présenter le Logiciel comme open source permissif ;
-- utiliser la marque, l’identité ou la réputation du titulaire sans autorisation ;
-- contourner les limites de la présente licence par sous-licence implicite ou transfert indirect.
+Any redistribution not meeting these conditions is prohibited.
 
 ---
 
-## 9. Résiliation
+## 6. Derivative Works
 
-La présente licence est automatiquement résiliée en cas de violation de l’une de ses clauses.
+Derivative works are permitted only for non-commercial purposes, provided that you:
 
-En cas de résiliation, vous devez immédiatement :
-- cesser toute utilisation du Logiciel ;
-- cesser toute redistribution ;
-- supprimer toutes les copies sous votre contrôle, sauf obligations légales contraires.
+- maintain clear attribution to Maxence Messarra;
+- document substantial changes;
+- do not misrepresent the derivative as an official version;
+- comply with the commercial-use prohibition in Section 4.
 
-Les articles relatifs à la propriété intellectuelle, à la responsabilité, et au droit applicable demeurent applicables après résiliation.
-
----
-
-## 10. Absence de garantie
-
-Le Logiciel est fourni **« en l’état »** et **« selon disponibilité »**, sans aucune garantie, expresse ou implicite, y compris notamment de qualité marchande, d’adéquation à un usage particulier, de non-contrefaçon, de disponibilité ou d’absence d’erreur.
-
-Vous assumez seul les risques liés à l’utilisation du Logiciel.
+The copyright holder reserves the right to require discontinuation of non-compliant derivative distribution.
 
 ---
 
-## 11. Limitation de responsabilité
+## 7. Attribution Requirements
 
-Dans les limites permises par la loi applicable, le titulaire des droits ne pourra être tenu responsable de tout dommage direct, indirect, spécial, accessoire ou consécutif (y compris perte d’activité, perte de données, perte de profit, interruption de service), résultant de l’utilisation ou de l’impossibilité d’utiliser le Logiciel, même en cas d’avertissement préalable sur la possibilité de tels dommages.
+Any copy, redistribution, or derivative must include at minimum:
 
----
-
-## 12. Droit applicable et juridiction compétente
-
-La présente licence est régie par le **droit français**.
-
-Tout litige relatif à son interprétation, sa validité, son exécution ou sa cessation relève de la compétence exclusive des juridictions du ressort de **Paris (France)**, sous réserve des règles impératives applicables.
+- the holder name: **Maxence Messarra**;
+- source repository reference: **NAYTOUX/Copilot-AI-Agent**;
+- a link to the owner’s GitHub profile;
+- reference to this license.
 
 ---
 
-## 13. Contact et demandes d’autorisation
+## 8. Additional Restrictions
 
-Pour toute demande (notamment usage commercial, partenariat, ou dérogation), contacter le propriétaire via :
+You may not:
 
-- **GitHub Owner** : `NAYTOUX`
-- **Profil GitHub** : `https://github.com/NAYTOUX`
-- **Repository** : `https://github.com/NAYTOUX/Copilot-AI-Agent`
+- remove, hide, or alter ownership notices;
+- represent the Software as permissive open-source software;
+- use the holder’s name, branding, or identity without permission;
+- circumvent this license through implicit sublicensing or indirect transfer.
 
 ---
 
-## 14. Acceptation
+## 9. Termination
 
-Toute utilisation, copie, modification ou redistribution du Logiciel implique l’acceptation pleine et entière de la présente licence.
+This license terminates automatically upon breach of any term.
+
+Upon termination, you must immediately:
+
+- stop all use of the Software;
+- stop all redistribution;
+- delete all copies under your control, except where retention is legally required.
+
+Sections concerning ownership, disclaimers, liability, and governing law survive termination.
+
+---
+
+## 10. No Warranty
+
+THE SOFTWARE IS PROVIDED **“AS IS”** AND **“AS AVAILABLE”**, WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AVAILABILITY, OR ERROR-FREE OPERATION.
+
+You assume all risks arising from use of the Software.
+
+---
+
+## 11. Limitation of Liability
+
+To the maximum extent permitted by law, the copyright holder shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, business, or service interruption, arising from use of or inability to use the Software, even if advised of the possibility of such damages.
+
+---
+
+## 12. Governing Law and Jurisdiction
+
+This license is governed by the laws of **France**.
+
+Any dispute related to this license shall be subject to the exclusive jurisdiction of the competent courts of **Paris, France**, subject to mandatory applicable law.
+
+---
+
+## 13. Contact and Commercial Authorization Requests
+
+For commercial licensing, partnerships, or exceptions, contact:
+
+- **GitHub Owner:** `NAYTOUX`
+- **GitHub Profile:** `https://github.com/NAYTOUX`
+- **Repository:** `https://github.com/NAYTOUX/Copilot-AI-Agent`
+
+---
+
+## 14. Acceptance
+
+By using, copying, modifying, or redistributing the Software, you acknowledge and agree to all terms of this license.
