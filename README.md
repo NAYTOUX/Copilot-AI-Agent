@@ -1,146 +1,234 @@
-# Universal Copilot Agent Hub
+# NAYTOUX/Copilot-AI-Agent
 
-This repository stores a reusable, GitHub-ready hierarchy of Copilot agents,
-instructions, prompts, skills, memory governance, and validation scripts.
+[![Version](https://img.shields.io/badge/version-0.1.0-informational)](#)
+[![Statut](https://img.shields.io/badge/statut-production--ready-2ea44f)](#)
+[![Validation](https://img.shields.io/badge/validation-orchestrator%20checks-blue)](#)
+[![Licence](https://img.shields.io/badge/licence-propri%C3%A9taire%20non--commerciale-red)](#)
+[![Contributions](https://img.shields.io/badge/contributions-encadr%C3%A9es-purple)](#)
 
-Use it as the source repository for agent personalities that can be copied,
-vendored, or synchronized into other repositories.
+> **Hub universel d’agents Copilot** pour industrialiser la création, la réutilisation et la gouvernance de personnalités d’agents dans vos futurs projets.
 
-## Structure
+---
 
-- `AGENTS.md`: canonical operating contract and routing hierarchy.
-- `.github/copilot-instructions.md`: short global Copilot rules.
-- `.github/agents/`: specialist agent personalities.
-- `.github/agent-registry.json`: machine-readable capability map.
-- `.github/instructions/`: scoped coding and governance rules.
-- `.github/prompts/`: reusable task entrypoints.
-- `.github/skills/`: reusable multi-step workflows.
-- `.github/hooks/`: Copilot lifecycle guardrails for safety and validation.
-- `.github/memory/`: append-only orchestration memory and routing state.
-- `.github/personality-proposals/`: generated personality spec drafts.
-- `.github/scripts/`: validators, memory refreshers, and relay tools.
-- `.github/workflows/`: GitHub Actions for validation and maintenance.
-- `.vscode/settings.json`: workspace Copilot discovery, generation, and AI
-  security settings.
-- `docs/`: human-facing guides.
-- `examples/`: payload examples for other repositories.
+## Résumé exécutif
 
-## Recommended Entry Point
+`NAYTOUX/Copilot-AI-Agent` est un référentiel central prêt à l’emploi pour :
+- standardiser des **personnalités d’agents** réutilisables,
+- orchestrer des workflows de livraison multi-domaines,
+- sécuriser la qualité via des **gates de validation**,
+- capitaliser l’apprentissage dans une mémoire append-only.
 
-Start with `Universal Orchestrator`.
+Ce dépôt permet un **démarrage rapide** d’un système d’agents Copilot dans un nouveau repo, avec une gouvernance claire, des instructions path-scopées, des skills métiers, et des scripts de contrôle automatisés.
 
-It classifies the request, builds a manager brief, routes to the right
-specialists, reconciles their outputs, validates the result, and updates memory
-when the session creates reusable learning.
+---
 
-## Local Validation
+## Proposition de valeur
 
+| Besoin entreprise | Réponse apportée par ce repo | Impact |
+|---|---|---|
+| Accélérer l’adoption Copilot à l’échelle | Base unifiée (`AGENTS.md`, `.github/instructions`, `.github/skills`) | Time-to-value réduit |
+| Réutiliser des personas d’agents dans plusieurs projets | Patterns d’import/export + structure standardisée | Effort de setup minimisé |
+| Maîtriser le risque qualité/sécurité | Validation scriptée + règles de gouvernance | Conformité renforcée |
+| Capitaliser le savoir d’exécution | Mémoire append-only (`.github/memory`) | Amélioration continue traçable |
+
+---
+
+## Vue d’architecture
+
+```mermaid
+flowchart TD
+    A[AGENTS.md<br/>Contrat opératoire] --> B[Orchestrateur]
+    B --> C[.github/agents<br/>Personnalités]
+    B --> D[.github/instructions<br/>Règles path-scopées]
+    B --> E[.github/skills<br/>Workflows spécialisés]
+    B --> F[.github/memory<br/>Apprentissage append-only]
+    B --> G[.github/hooks<br/>Garde-fous lifecycle]
+    C --> H[Exécution par domaine]
+    D --> H
+    E --> H
+    H --> I[Validation scripts]
+    I --> J[Release/Adoption downstream]
+```
+
+---
+
+## Cartographie des composants (dossier → rôle)
+
+| Chemin | Rôle principal | Quand l’utiliser |
+|---|---|---|
+| `AGENTS.md` | Contrat d’orchestration global | Toujours en premier |
+| `.github/copilot-instructions.md` | Règles Copilot transverses | À chaque session |
+| `.github/agents/` | Profils d’agents spécialisés | Quand vous créez/ajustez une personnalité |
+| `.github/instructions/` | Instructions ciblées par type de fichier (`applyTo`) | Pour imposer des normes localisées |
+| `.github/skills/` | Workflows multi-étapes réutilisables | Pour routage/domaines complexes |
+| `.github/memory/` | Mémoire append-only & feedback loop | Pour capitalisation inter-session |
+| `.github/hooks/` | Guardrails d’exécution et conformité | Pour sécuriser le cycle Copilot |
+| `.github/scripts/` | Validation, relay, reporting | Avant merge/release |
+| `docs/` | Documentation opérationnelle et gouvernance | Adoption, runbooks, politiques |
+| `examples/` | Exemples de payloads/briefs/reports | Bootstrap rapide des intégrations |
+
+---
+
+## Quick Start (réaliste et immédiat)
+
+### Pré-requis
+- Git
+- Python 3.x
+- VS Code + GitHub Copilot
+
+### Démarrage en 5 minutes
+- [ ] Cloner le repo
+- [ ] Lire `AGENTS.md`
+- [ ] Lire `.github/copilot-instructions.md`
+- [ ] Lancer les validations de customisation
+- [ ] Lancer les checks d’orchestration
+
+```bash
+git clone https://github.com/NAYTOUX/Copilot-AI-Agent.git
+cd Copilot-AI-Agent
+python .github/scripts/validate_copilot_customizations.py
+python .github/scripts/run_orchestrator_checks.py
+```
+
+---
+
+## Workflow express de réutilisation des personnalités d’agents
+
+### Objectif
+Réutiliser rapidement une personnalité d’agent dans un nouveau projet sans reconstruire la gouvernance.
+
+### Processus recommandé
+1. **Importer le socle** : `AGENTS.md`, `.github/copilot-instructions.md`, `.github/instructions/`, `.github/skills/`.
+2. **Sélectionner les personas** dans `.github/agents/` selon vos cas d’usage.
+3. **Conserver les scripts de validation** et adapter uniquement les chemins/commandes projet.
+4. **Brancher la mémoire** (`.github/memory/`) en mode append-only.
+5. **Valider avant activation** avec les scripts Python natifs du hub.
+
+### Checklist de réutilisation
+- [ ] Contrat d’orchestration copié sans altération critique
+- [ ] Instructions `applyTo` alignées au nouveau repo
+- [ ] Skills pertinents activés (sans surcharge inutile)
+- [ ] Hooks/guardrails compatibles workflow local
+- [ ] Validation exécutée avec succès
+
+---
+
+## Options d’import/export
+
+| Mode | Description | Avantages | Limites |
+|---|---|---|---|
+| Import manuel sélectif | Copie ciblée de fichiers/dossiers | Contrôle fin | Plus d’effort initial |
+| Import “hub core” | Reprise quasi complète du socle `.github` + `AGENTS.md` | Déploiement rapide | Nécessite harmonisation légère |
+| Export de persona | Extraction d’un agent + ses instructions/skills associés | Réutilisation granulaire | Dépendances à vérifier |
+| Export de gouvernance | Portage des scripts/checks et docs de process | Uniformité multi-repos | Demande discipline d’exécution |
+
+---
+
+## Gouvernance & workflow de validation
+
+### Standards de contrôle
+- Validation des customisations Copilot.
+- Vérification des règles d’orchestration.
+- Contrôle de cohérence des assets `.github`.
+
+### Commandes de référence
 ```bash
 python .github/scripts/validate_copilot_customizations.py
-python .github/scripts/validate_json_contracts.py
-python .github/scripts/validate_agent_relationships.py
 python .github/scripts/run_orchestrator_checks.py
-python .github/scripts/audit_agent_hub.py
-python .github/scripts/route_request.py --text "Fix a Python regression"
-python .github/scripts/generate_capability_matrix.py --check
-python .github/scripts/evaluate_routing.py
-python .github/scripts/generate_agent_catalog.py --check
-python .github/scripts/validate_agent_report_payload.py examples/agent-report.json
-python .github/scripts/validate_agent_report_payload.py examples/orchestrator-usage-report.json
-python .github/scripts/create_agent_personality.py --spec examples/personality-spec.json --dry-run
-python .github/scripts/promote_personality_proposal.py --proposal examples/personality-spec.json --allow-low-evidence
-python .github/scripts/report_orchestrator_usage.py --source-repo owner/repo --request "Example request"
-python .github/scripts/create_downstream_reporting_kit.py --target C:/path/to/target-repo
-python .github/scripts/copilot_hook_guard.py --event sessionStart
-python .github/scripts/evolve_personalities_from_memory.py
-python .github/scripts/update_agent_effectiveness_profile.py --check
-python .github/scripts/prepare_release.py --allow-dirty
 ```
 
-## Import Into Another Repository
+### Gate de qualité (avant merge)
+- [ ] Architecture d’agents cohérente
+- [ ] Instructions non contradictoires
+- [ ] Skills routables et testables
+- [ ] Mémoire append-only respectée
+- [ ] Documentation alignée sur le comportement réel
 
-Copy these files first:
+---
 
-```text
-AGENTS.md
-.github/copilot-instructions.md
-.github/agents/
-.github/instructions/
-.github/prompts/
-.github/skills/
-.github/hooks/
-.github/memory/MEMORY_INDEX.md
-.github/memory/ORCHESTRATOR_ROUTING_SCORECARD.md
-.github/scripts/validate_copilot_customizations.py
-.vscode/settings.json
-```
+## Sécurité & confidentialité
 
-Then adapt project-specific validation commands, file paths, and domain workers.
+| Domaine | Exigence |
+|---|---|
+| Secrets | Ne jamais exposer tokens, clés privées, variables d’environnement |
+| Données privées | Exclusion stricte des payloads sensibles dans docs/memory |
+| Mémoire | Politique append-only, pas de réécriture destructive |
+| Automatisation | Permissions minimales, contrôles explicites |
 
-Or preview an automated export:
+**Principe directeur** : aucune fuite de données, aucune validation “déclarative” sans exécution réelle.
 
-```bash
-python .github/scripts/export_agent_hub.py --target C:/path/to/target-repo
-```
+---
 
-## Information Relay
+## Modèle de contribution
 
-Other repositories should send concise structured reports instead of dumping raw
-logs. Use:
+### Flux recommandé
+1. Créer une branche dédiée.
+2. Modifier de façon ciblée (pas de refactor hors périmètre).
+3. Exécuter les scripts de validation.
+4. Documenter impacts et limites.
+5. Ouvrir PR avec justification claire.
 
-```bash
-python .github/scripts/receive_agent_report.py \
-  --source-repo owner/repo \
-  --agent "Repo Orchestrator" \
-  --category implementation \
-  --confidence high \
-  --summary "Fixed stale cache invalidation in dashboard worker." \
-  --details-file report.md
-```
+### Bonnes pratiques
+- [ ] Commits atomiques et message explicite
+- [ ] Respect des conventions existantes
+- [ ] Traçabilité des décisions dans `docs/` si nécessaire
+- [ ] Zéro secret en clair
 
-See `docs/INFORMATION_RELAY.md`.
+---
 
-For usage feedback after each downstream Orchestrator session:
+## Roadmap (indicative)
 
-```bash
-python .github/scripts/report_orchestrator_usage.py \
-  --source-repo owner/repo \
-  --request "Short session summary" \
-  --selected-agents "Universal Orchestrator,Testing Worker" \
-  --outcome completed \
-  --validation "project tests" \
-  --write
-```
+| Horizon | Priorité |
+|---|---|
+| Court terme | Renforcement des templates d’adoption downstream |
+| Moyen terme | Couverture de validation élargie (domaines spécialisés) |
+| Moyen terme | Catalogue de personnalités enrichi avec métriques d’efficacité |
+| Long terme | Gouvernance adaptive cross-repo avec feedback loops automatisés |
 
-Then relay the generated JSON to this hub and run
-`python .github/scripts/evolve_personalities_from_memory.py`.
+---
 
-## Core Guides
+## FAQ
 
-- `docs/HIERARCHY.md`: hierarchy model.
-- `docs/CAPABILITY_MATRIX.md`: human-readable capability map.
-- `docs/AGENT_CATALOG.md`: generated catalog of all agents.
-- `docs/HANDOFF_PROTOCOL.md`: manager brief and specialist report contract.
-- `docs/AGENT_RELATIONSHIPS.md`: relationship map between personalities.
-- `docs/COPILOT_CODE_REVIEW.md`: dedicated Copilot code review behavior.
-- `docs/VS_CODE_COPILOT_SETTINGS.md`: VS Code Copilot discovery, generation,
-  and AI security settings.
-- `docs/ORCHESTRATOR_PLAYBOOK.md`: default Orchestrator operating loop.
-- `docs/ROUTING_ENGINE.md`: deterministic local request router.
-- `docs/ADOPTION_GUIDE.md`: import path for another repository.
-- `docs/CROSS_REPO_USAGE_REPORTING.md`: downstream usage feedback loop.
-- `docs/DOWNSTREAM_REPORTING_KIT.md`: bootstrap kit for downstream repos.
-- `docs/MICROSOFT_COPILOT_ALIGNMENT.md`: official Copilot customization
-  alignment map.
-- `docs/PERSONALITY_EVOLUTION.md`: controlled personality creation loop.
-- `docs/RELEASE_PROCESS.md`: release gate and versioning.
-- `docs/PUBLISH_TO_GITHUB.md`: first publish checklist.
-- `docs/DECISION_RECORDS.md`: durable architecture decisions.
-- `docs/OWNERSHIP.md`: accountable agent owners by surface.
-- `docs/CHANGE_CONTROL.md`: required evidence by change type.
+### Ce repo est-il un framework d’application ?
+Non. C’est un **hub de gouvernance et de réutilisation d’agents Copilot**.
 
-## Doctor
+### Puis-je l’utiliser tel quel dans un repo produit ?
+Oui, avec adaptation des instructions `applyTo`, commandes de validation, et conventions projet.
 
-```bash
-python .github/scripts/doctor_agent_hub.py
-```
+### Quelle est la première lecture obligatoire ?
+`AGENTS.md`, puis `.github/copilot-instructions.md`.
+
+### Comment vérifier qu’une personnalisation est saine ?
+Exécuter les scripts de validation fournis dans `.github/scripts/`.
+
+### Ce repo est-il open source au sens permissif ?
+Non. Voir `LICENSE.md` (propriétaire, usage non commercial par défaut).
+
+---
+
+## Support
+
+- **Owner GitHub** : `NAYTOUX`
+- **Repository** : `NAYTOUX/Copilot-AI-Agent`
+- **Canaux recommandés** :
+  - Issues GitHub (support technique/documentation)
+  - Discussions/PR pour évolution structurante
+
+---
+
+## Légal & licence
+
+Ce dépôt est distribué sous licence **propriétaire non commerciale**.  
+Tous droits réservés. Utilisation commerciale interdite sans autorisation écrite préalable.
+
+Voir le document complet : **`LICENSE.md`**.
+
+---
+
+## TL;DR exécutable
+
+- [ ] Cloner le repo
+- [ ] Lire `AGENTS.md`
+- [ ] Lancer les 2 scripts de validation
+- [ ] Réutiliser les personas/instructions/skills selon votre cible
+- [ ] Contribuer via PR avec preuves de validation
